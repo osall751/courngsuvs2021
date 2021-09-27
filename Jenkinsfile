@@ -1,10 +1,9 @@
-pipeline {
-  agent { label 'nodejs8' }
+pipeline { 
   stages {
     stage('Install') {
       steps { sh 'npm install' }
     }
-
+  }
     stage('Test') {
       parallel {
         stage('Static code analysis') {
@@ -19,5 +18,5 @@ pipeline {
     stage('Build') {
       steps { sh 'npm run-script build' }
     }
-  }
+  
 }
